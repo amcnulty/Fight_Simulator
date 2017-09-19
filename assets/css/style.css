@@ -1,0 +1,9 @@
+@font-face {
+    font-family: starJedi;
+    src:    url("../fonts/Starjedi.woff") format("woff"),
+            url("../fonts/Starjedi.ttf") format("truetype");
+}
+
+html, body {
+    font-family: starJedi, Arial, Helvetica, sans-serif;
+}
