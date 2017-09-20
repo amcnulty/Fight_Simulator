@@ -58,7 +58,8 @@ html, body {
 #fadeBlock {
     position: absolute;
     top: 0px;
-    width: 100%;
+    right: 0px;
+    width: 80%;
     height: 400px;
 }
 
@@ -141,6 +142,31 @@ html, body {
     height: 200px;
 }
 
+.button {
+    font-family: starJedi, Arial, Helvetica, sans-serif;
+    background-color: whitesmoke;
+    border: 2px solid #050505;
+    color: #050505;
+    padding: 10px;
+    border-radius: 10px;
+    outline: none;
+    font-size: 1.5em;
+    margin: 10px 0px 10px 0px;
+    cursor: pointer;
+    transition: all .4s ease;
+}
+
+.button:hover {
+    background-color: #bb0000;
+    color: whitesmoke;
+    border: 2px solid whitesmoke;
+}
+
 #defenderSection {
     height: 200px;
 }
+
+#battleError {
+    color: #bb0000;
+}
+
