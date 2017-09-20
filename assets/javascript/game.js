@@ -74,7 +74,7 @@ function load() {
                     else characters[i].red();
                 }
             }
-            else if (getCharacter(this).status === "choose opponent") {
+            else {
                 for (var i = 0; i < characters.length; i++) {
                     if(e.currentTarget.children[0].innerHTML === characters[i].name) {
                         characters[i].opponent();
@@ -85,19 +85,8 @@ function load() {
     }
 
     function getCharacter(div) {
-        switch (div.children[0].innerHTML) {
-            case "obi-Wan Kenobi":
-                return characters[0];
-            break;
-            case "Luke Skywalker":
-                return characters[1];
-            break;
-            case "Darth Sidious":
-                return characters[2];
-            break;
-            case "Darth Maul":
-                return characters[3];
-            break;
+        for (var i = 0; i < characters.length; i++) {
+            if (characters[i].name === div.children[0].innerHTML) return characters[i];
         }
     }
 
