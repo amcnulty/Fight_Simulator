@@ -138,7 +138,6 @@ function load() {
         this.$div.append(this.$name, this.$img, this.$hp);
         $characterSection.append(this.$div);
         this.$div.on("click", function(e) {
-            console.log(getCharacter(this).status);
             if (getCharacter(this).status === "choose character") {
                 for (var i = 0; i < characters.length; i++) {
                     if (e.currentTarget.children[0].innerHTML === characters[i].name) {
@@ -179,7 +178,7 @@ function load() {
             game.fightRound();
         }
         else if (game.readyToBattle && game.playerCharacter.status === "defeated") {
-            game.displayBattleStats("your player has been defeated", "");
+            game.displayErrorMessage("your player has been defeated");
         }
         else {
             game.displayErrorMessage("no enemy selected!");
