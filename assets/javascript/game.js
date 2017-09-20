@@ -23,93 +23,92 @@ function load() {
         this.image = image;
         this.status = status;
         this.hp = hp;
-        var $div = $("<div></div>");
-        var $hp = $("<p></p>");
+        this.$div = $("<div></div>");
+        this.$hp = $("<p></p>");
+        this.$name = $("<p></p>");
+        this.$img = $("<img></img>");
+        this.opponent = function() {
+            if (noOpponent()) {
+                this.$div.attr("class", "character red");
+                this.status = "current opponent";
+                $defenderSection.append(this.$div);
+            }
+        }
+        function noOpponent() {
+            var noOpponent = true;
+            for (var i = 0; i < characters.length; i++) {
+                if (characters[i].status === "current opponent") noOpponent = false;
+            }
+            return noOpponent;
+        }
+    }
 
-        (function createElement() {
-            $div.attr("class", "character green selectable");
-            var $name = $("<p></p>");
-            $name.text(name);
-            $name.attr("class", "charName");
-            var $img = $("<img></img>");
-            $img.attr("src", image);
-            $img.attr("class", "charPic");
-            $hp.text(hp);
-            $hp.attr("class", "charHP");
-            $div.append($name, $img, $hp);
-            $characterSection.append($div);
-        })();
-        $div.on("click", function(e) {
-            if (status === "choose character") {
+    Character.prototype.gameCharacter = function() {
+        this.$div.attr("class", "character green");
+        this.status = "game character";
+    }
+
+
+    Character.prototype.red = function() {
+        this.$div.attr("class", "character red selectable");
+        $enemiesSection.append(this.$div);
+        this.status = "choose opponent";
+    }
+
+    Character.prototype.createElement = function() {
+        this.$div.attr("class", "character green selectable");
+        this.$name.text(this.name);
+        this.$name.attr("class", "charName");
+        this.$img.attr("src", this.image);
+        this.$img.attr("class", "charPic");
+        this.$hp.text(this.hp);
+        this.$hp.attr("class", "charHP");
+        this.$div.append(this.$name, this.$img, this.$hp);
+        $characterSection.append(this.$div);
+        this.$div.on("click", function(e) {
+            if (getCharacter(this).status === "choose character") {
                 for (var i = 0; i < characters.length; i++) {
                     if (e.currentTarget.children[0].innerHTML === characters[i].name) {
-                        setCharacter(i);
+                        characters[i].gameCharacter();
                     }
+                    else characters[i].red();
                 }
             }
-            else if (status === "choose opponent") {
+            else if (getCharacter(this).status === "choose opponent") {
                 for (var i = 0; i < characters.length; i++) {
                     if(e.currentTarget.children[0].innerHTML === characters[i].name) {
-                        opponent();
+                        characters[i].opponent();
                     }
                 }
             }
         })
-        this.red = function() {
-            $div.attr("class", "character red selectable");
-            $enemiesSection.append($div);
-            status = "choose opponent";
-        }
-        this.gameCharacter = function() {
-            $div.attr("class", "character green");
-            status = "game character";
-        }
-        function opponent() {
-            if (noOpponent()) {
-                $div.attr("class", "character red");
-                status = "current opponent";
-                $defenderSection.append($div);
-            }
-        }
     }
 
-    Character.prototype.setCharacter = function() {
-        this.gameCharacter();
-    }
-
-    Character.prototype.setEnemy = function() {
-        this.red();
-    }
-
-    Character.prototype.setNewOpponent = function() {
-        this.set;
-    }
-
-    function setCharacter(index) {
-        for (var i = 0; i < characters.length; i++) {
-            if (i === index) {
-                characters[i].setCharacter();
-            }
-            else characters[i].setEnemy();
+    function getCharacter(div) {
+        switch (div.children[0].innerHTML) {
+            case "obi-Wan Kenobi":
+                return characters[0];
+            break;
+            case "Luke Skywalker":
+                return characters[1];
+            break;
+            case "Darth Sidious":
+                return characters[2];
+            break;
+            case "Darth Maul":
+                return characters[3];
+            break;
         }
     }
 
-    function setOpponent(index) {
-        for (var i = 0; i < characters.length; i++) {
-            if (i === index) {
-                characters[i].setCharacter();
-            }
-        }
-    }
-
-    function noOpponent() {
-        if (document.getElementById("defenderSection").children.length === 0) return true;
-        return false;
-    }
+    characters[0].createElement();
+    characters[1].createElement();
+    characters[2].createElement();
+    characters[3].createElement();
 
     $("#crawl").on("animationend", function() {
         $titleScreen.css({display: "none"});
         $gameScreen.css({display: "block"});
     })
-
+    $gameScreen.css({display: "none"});
 }

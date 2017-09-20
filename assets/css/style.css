@@ -33,7 +33,7 @@ html, body {
     top: -11000px;
     transform: rotateX(45deg) translateZ(-5500px);
     transform-origin: 50% 100%;
-    animation: .30s linear crawl;
+    animation: 30s linear crawl;
 }
 
 #crawl p {
