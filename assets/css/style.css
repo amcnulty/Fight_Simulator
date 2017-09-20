@@ -33,7 +33,7 @@ html, body {
     top: -11000px;
     transform: rotateX(45deg) translateZ(-5500px);
     transform-origin: 50% 100%;
-    animation: 30s linear crawl;
+    animation: .30s linear crawl;
 }
 
 #crawl p {
@@ -75,4 +75,72 @@ html, body {
     width: 100%;
     height: 200px;
     background-color: black;
+}
+
+#gameScreen {
+    width: 100%;
+    height: 100vh;
+    background: url("../images/star_wars_xwing.jpg") center center no-repeat;
+    background-size: cover;
+}
+
+#gameScreen {
+    color: #050505;
+}
+
+#gameHeader {
+    width: 100%;
+    text-align: center;
+    font-size: 2em;
+}
+
+#mainContent {
+    margin-left: 50px;
+}
+
+#characterSection {
+    height: 200px;
+}
+
+.character {
+    display: inline-block;
+    text-align: center;
+    padding: 8px 20px 8px 20px;
+    background-color: whitesmoke;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.green {
+    border: 4px solid green;
+    transition: .3s all;
+}
+
+.green:hover {
+    border: 4px solid darkgreen;
+}
+
+.red {
+    border: 4px solid #ff0000;
+    transition: .3s all;
+}
+
+.red:hover {
+    border: 4px solid #bb0000;
+}
+
+.selectable {
+    transition: .3s all;
+}
+
+.selectable:hover {
+    transform: scale(1.1);
+}
+
+#enemiesSection {
+    height: 200px;
+}
+
+#defenderSection {
+    height: 200px;
 }
