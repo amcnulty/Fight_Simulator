@@ -294,6 +294,13 @@ function load() {
         $titleScreen.css({display: "none"});
         $gameScreen.css({display: "block"});
     })
+    /** Event listener for the space button to continue to game. */
+    $(window).on("keyup", function(e) {
+        if (String.fromCharCode(e.keyCode).toLowerCase() === " ") {
+            $titleScreen.css({display: "none"});
+            $gameScreen.css({display: "block"});
+        }
+    })
     // Set the game display to not be shown at startup.
     $gameScreen.css({display: "none"});
 }
