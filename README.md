@@ -1,5 +1,5 @@
 # Star Wars Fight Simulator
-Homework assignment for week 4 of the coding bootcamp. This is a Star Wars themed turn based fight simulator game for desktop browsers.
+This is a Star Wars themed turn based fight simulator game for desktop browsers.
 
 ## Open For Peer Review
 <h3>All code is open for peer review. All comments in code are to explain what the code is doing.</h3>
@@ -12,11 +12,8 @@ Homework assignment for week 4 of the coding bootcamp. This is a Star Wars theme
 ## Objectives
 1. Create Star Wars themed fight simulator in the browser.
 2. Make the game feature dynamically updated HTML powered by jQuery code.
-3. Make game function as described in homework assignment.
+3. Make a balanced attack system so players can win or loose with any character.
 4. Make a cool title screen powered by CSS animations.
 
-## Due date
-Saturday, September 23<sup>rd</sup> 2017 9:00 AM
-
 ## Links
-* [Game Link](https://amcnulty.github.io/week-4-game/ "Star Wars Fight Simulator!")
+* [Game Link](https://amcnulty.github.io/Fight_Simulator/ "Star Wars Fight Simulator!")
